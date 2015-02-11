@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+
+public class Quiz2Console 
+{
+	private static String correctUsername = "Chris";
+	private static String correctPassword = "12345";
+	private static String username;
+	private static String password;
+	private static boolean status;
+
+	public static void main(String[] args) 
+	{
+		Scanner keyboard = new Scanner(System.in);
+
+		System.out.println("Enter username.");
+		username = keyboard.nextLine();
+		usernameAuthentication();
+		if(status)
+		{
+			System.out.println("Enter password.");
+			password = keyboard.nextLine();
+			passwordAuthentication();
+			if(status)
+				System.out.println("Welcome " + username);
+			else
+				System.out.println("Invalid password.");
+		}
+		else
+			System.out.println("Invalid username.");
+	}
+	public static boolean usernameAuthentication() 
+	{
+		if(username.equalsIgnoreCase(correctUsername))
+			status = true;
+		else
+			status = false;
+		return status;
+	}
+	public static boolean passwordAuthentication() 
+	{
+		if(password.equalsIgnoreCase(correctPassword))
+			status = true;
+		else
+			status = false;
+		return status;
+	}
+}

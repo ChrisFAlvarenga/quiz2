@@ -1,0 +1,44 @@
+
+import javax.swing.JOptionPane;
+
+public class Quiz2JOptionPane 
+{
+	private static String correctUsername = "Chris";
+	private static String correctPassword = "12345";
+	private static String username;
+	private static String password;
+	private static boolean status;
+
+	public static void main(String[] args) 
+	{
+		username = JOptionPane.showInputDialog("Enter username.");
+		usernameAuthentication();
+		if(status)
+		{
+			password = JOptionPane.showInputDialog("Enter password.");
+			passwordAuthentication();
+			if(status)
+				JOptionPane.showMessageDialog(null, "Welcome " + username);
+			else
+				JOptionPane.showMessageDialog(null, "Invalid password.");
+		}
+		else
+			JOptionPane.showMessageDialog(null, "Invalid username.");
+	}
+	public static boolean usernameAuthentication() 
+	{
+		if(username.equalsIgnoreCase(correctUsername))
+			status = true;
+		else
+			status = false;
+		return status;
+	}
+	public static boolean passwordAuthentication() 
+	{
+		if(password.equalsIgnoreCase(correctPassword))
+			status = true;
+		else
+			status = false;
+		return status;
+	}
+}
